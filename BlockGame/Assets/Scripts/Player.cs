@@ -40,4 +40,24 @@ public class Player : MonoBehaviour
         // Move the game object (Player).
         rigidBodyComponent.velocity = movement;
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "UpWall")
+        {
+            rigidBodyComponent.AddForce(Vector2.down * 10, ForceMode2D.Impulse);
+        }
+        else if (collision.gameObject.name == "DownWall")
+        {
+            rigidBodyComponent.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+        }
+        else if (collision.gameObject.name == "LeftWall")
+        {
+            rigidBodyComponent.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
+        }
+        else if (collision.gameObject.name == "RightWall")
+        {
+            rigidBodyComponent.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
+        }
+    }
 }

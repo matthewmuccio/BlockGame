@@ -12,6 +12,7 @@ public class Move : MonoBehaviour
     // Moving direction of the current object.
     public Vector2 direction = new Vector2(-1, 0);
 
+    // Store the movement of the Player and the component.
     private Vector2 movement;
     private Rigidbody2D rigidBodyComponent;
 
@@ -39,5 +40,10 @@ public class Move : MonoBehaviour
 
         // Move the game object (Player).
         rigidBodyComponent.velocity = movement;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        
     }
 }
