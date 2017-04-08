@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 0c0fd3456eebe5d4aa0c8ec05b982e9b
+timeCreated: 1491687211
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Small Pixel7
+  fontNames:
+  - Small Pixel7
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

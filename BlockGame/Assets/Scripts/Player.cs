@@ -11,10 +11,12 @@ public class Player : MonoBehaviour
     private Vector2 movement;
     private Rigidbody2D rigidBodyComponent;
 
+    private bool isAlive;
+
     // Use this for initialization
     void Start()
     {
-
+        isAlive = true;
     }
 
     // Update is called once per frame
@@ -59,5 +61,15 @@ public class Player : MonoBehaviour
         {
             rigidBodyComponent.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
         }
+        else if (collision.gameObject.name == "Enemy")
+        {
+            playerHit();
+        }
+    }
+
+    void playerHit()
+    {
+        isAlive = false;
+        Destroy(this);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Simply moves the current game object.
-public class Move : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     // Designer variables
     // Speed of the current object.
@@ -16,19 +16,19 @@ public class Move : MonoBehaviour
     private Vector2 movement;
     private Rigidbody2D rigidBodyComponent;
 
-	// Use this for initialization
-	void Start()
+    // Use this for initialization
+    void Start()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update()
+        
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         // Movement
         movement = new Vector2(speed.x * direction.x,
                                 speed.y * direction.y);
-	}
+    }
 
     // FixedUpdate is called at every fixed framerate frame.
     // Use this method over Update when dealing with physics.
@@ -44,6 +44,21 @@ public class Move : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.name == "UpWall")
+        {
+            direction.y = -direction.y;
+        }
+        else if (collision.gameObject.name == "DownWall")
+        {
+            direction.y = 1;
+        }
+        else if (collision.gameObject.name == "LeftWall")
+        {
+            direction.x = 1;
+        }
+        else if (collision.gameObject.name == "RightWall")
+        {
+            direction.x = -direction.x;
+        }
     }
 }
