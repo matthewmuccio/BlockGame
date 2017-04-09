@@ -14,14 +14,14 @@ public class Player : MonoBehaviour
     // Store the movement of the Player and the component.
     private Vector2 movement;
     private Rigidbody2D rigidBody2D;
-    private bool isAlive;
     private int score;
-
+    private float startTime;
+    
     // Use this for initialization
     void Start()
     {
+        startTime = Time.time;
         gameObject.SetActive(true);
-        isAlive = true;
         score = 0;
         UpdateScore();
     }
@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     // Use this method over Update when dealing with physics.
     void FixedUpdate()
     {
+        CalculateScore();
         // Obtain the axis information.
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
@@ -70,7 +71,7 @@ public class Player : MonoBehaviour
         {
             rigidBody2D.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
         }
-        else if (collision.gameObject.name == "Enemy")
+        else if (collision.gameObject.CompareTag("Enemy"))
         {
             OnPlayerHit();
         }
@@ -78,17 +79,24 @@ public class Player : MonoBehaviour
 
     void OnPlayerHit()
     {
-        PlayerPrefs.SetFloat("highScore", score);
-        gameObject.SetActive(false);
-        isAlive = false;
-        Destroy(this);
+        if (PlayerPrefs.GetFloat("highScore") < score)
+            PlayerPrefs.SetFloat("highScore", score);
 
+        gameObject.SetActive(false);
+        Destroy(this);
         SceneManager.LoadScene(0);
     }
 
     public void AddScore(int newScore)
     {
         score += newScore;
+        UpdateScore();
+    }
+
+    void CalculateScore()
+    {
+        float time = Time.time - startTime;
+        score = (int)time;
         UpdateScore();
     }
 
