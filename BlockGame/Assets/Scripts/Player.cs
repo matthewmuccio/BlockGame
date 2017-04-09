@@ -57,19 +57,19 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.name == "UpWall")
         {
-            rigidBody2D.AddForce(Vector2.down * 10, ForceMode2D.Impulse);
+            rigidBody2D.AddForce(Vector2.down * 5, ForceMode2D.Force);
         }
         else if (collision.gameObject.name == "DownWall")
         {
-            rigidBody2D.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+            rigidBody2D.AddForce(Vector2.up * 5, ForceMode2D.Force);
         }
         else if (collision.gameObject.name == "LeftWall")
         {
-            rigidBody2D.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
+            rigidBody2D.AddForce(Vector2.right * 5, ForceMode2D.Force);
         }
         else if (collision.gameObject.name == "RightWall")
         {
-            rigidBody2D.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
+            rigidBody2D.AddForce(Vector2.left * 5, ForceMode2D.Force);
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
