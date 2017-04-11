@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Score controls the score calculation, text, and high score.
+// Currently not working and obsolete, but will implement eventually.
 public class Score : MonoBehaviour
 {
+    /**
+    // Refers to the Text object that is stored on the 
     public GUIText scoreText;
-    static int highScore = 0;
+    public static int highScore = 0;
 
 	// Use this for initialization
 	void Start()
@@ -19,5 +23,5 @@ public class Score : MonoBehaviour
 	void Update()
     {
         scoreText.text = "Score: " + highScore;
-	}
+	}*/
 }

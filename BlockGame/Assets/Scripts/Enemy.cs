@@ -5,43 +5,17 @@ using UnityEngine;
 // Simply moves the current game object.
 public class Enemy : MonoBehaviour
 {
-    // Fields
+    // Refers to the RigidBody2D of which the script is a component.
     private Rigidbody2D rigidBody2D;
-    public float force;
+    // Refers to the force that should be applied on the Enemy objects at all times. The default is 300.
+    public float force = 300F;
 
-    // Speed of the current object.
-    //public Vector2 speed = new Vector2(10, 10);
-
-    // Moving direction of the current object.
-    //public Vector2 direction = new Vector2(-1, 0);
-
-    // Store the movement of the Player and the component.
-    //private Vector2 movement;
-    //private Rigidbody2D rigidBodyComponent;
-
-    // Use this for initialization
+    // Use this for initialization.
     void Start()
     {
+        // Get the RigidBody2D component and store the reference.
         rigidBody2D = GetComponent<Rigidbody2D>();
+        // Simply add a force (the default is 300) when the object is instantiated.
         rigidBody2D.AddForce(new Vector2(force, force));
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // Movement
-        //movement = new Vector2(speed.x * direction.x, speed.y * direction.y);
-    }
-
-    // FixedUpdate is called at every fixed framerate frame.
-    // Use this method over Update when dealing with physics.
-    void FixedUpdate()
-    {
-        // Get the component and store the reference.
-        //if (rigidBodyComponent == null)
-        //    rigidBodyComponent = GetComponent<Rigidbody2D>();
-
-        // Move the game object (Player).
-        //rigidBodyComponent.velocity = movement;
     }
 }

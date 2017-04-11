@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// GameManager manages the game, its scene, components, and objects.
+// Currently not working and obsolete, but will implement eventually.
 public class GameManager : MonoBehaviour
 {
+    /**
     public delegate void GameManagerEventHandler();
 
     public event GameManagerEventHandler PlayEvent;
@@ -48,5 +51,5 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1F);
         Instantiate(enemy);
-    }
+    }*/
 }
