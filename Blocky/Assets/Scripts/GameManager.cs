@@ -13,6 +13,11 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        
+    }
+
+    void Start()
+    {
         DontDestroyOnLoad(gameObject);
     }
 

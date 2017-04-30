@@ -30,10 +30,10 @@ public class MainMenu : MonoBehaviour
     IEnumerator loading()
     {
         // Creates a yield instruction to wait for one second using scaled time.
-        yield return new WaitForSeconds(1F);
+        yield return new WaitForSeconds(0.5F);
         // SceneManager controls scene management at runtime.
         // LoadScene loads the Loading scene after waiting a second and then loads the main gameplay.
-        SceneManager.LoadScene("Loading");
+        SceneManager.LoadScene("Stage");
     }
 
     // Runs when the player clicks the "Options" button.

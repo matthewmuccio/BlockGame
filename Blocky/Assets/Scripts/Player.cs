@@ -95,12 +95,14 @@ public class Player : MonoBehaviour
     // Runs when the Player has collided with an Enemy game object, which ends the game.
     void OnPlayerHit()
     {
-        // Afterward, load the Main Menu scene (will eventually be loading the GameOver scene).
-        SceneManager.LoadScene("Menu");
         // If the current high score stored in PlayerPrefs, which stores and accesses player preferences between game sessions,
         // is less than the Player's current score on death, update the high score value in PlayerPrefs to the current score.
         if (PlayerPrefs.GetFloat("highScore") < score)
             PlayerPrefs.SetFloat("highScore", score);
+        // Update the last score value in PlayerPrefs to obtain it on the Game Over menu.
+        PlayerPrefs.SetFloat("lastScore", score);
+        // Afterward, load the Main Menu scene (will eventually be loading the GameOver scene).
+        SceneManager.LoadScene("GameOver");
 
         // Remove the current game object from the scene (both may be unnecessary).
         //Destroy(this);
