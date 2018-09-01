@@ -1,4 +1,7 @@
-# Blocky
+Blocky
+======
+http://www.blockygame.com/
+
 A fun multiplatform 2D game built using the Unity game engine. (Bitcamp 2017 Project)
 Blocky is currently available for PC, Mac, or on the web! (http://www.blockygame.com/) In addition, my goal is to eventually deploy to mobile (iOS and Android) when a full version is released, thanks to Unity's being a powerful cross-platform game engine.
 The game is currently in early development with a version of Beta v1.2.3.
